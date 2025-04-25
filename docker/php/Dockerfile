@@ -21,7 +21,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 
 # アプリケーションのコピー
-COPY . /var/www
+COPY ../.. /var/www
 
 # パーミッションの設定
 RUN chown -R www-data:www-data /var/www
