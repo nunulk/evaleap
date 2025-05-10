@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Models\Organization;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +39,7 @@ class RegisteredUserController extends Controller
 
         $domain = explode('@', $request->email)[1];
         $organization = Organization::where('domain', $domain)->first();
-        if (!$organization) {
+        if (! $organization) {
             return redirect()->back()->withErrors(['email' => 'Sorry!']);
         }
 

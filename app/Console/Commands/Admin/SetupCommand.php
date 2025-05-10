@@ -35,8 +35,9 @@ class SetupCommand extends Command
 
         $this->info("email: $email");
         $this->info("password: $password");
-        if ($email !== $adminEmail || !$email || !$password) {
+        if ($email !== $adminEmail || ! $email || ! $password) {
             $this->error('valid email and password are required');
+
             return;
         }
         Admin::create(['email' => $email, 'password' => bcrypt($password)]);

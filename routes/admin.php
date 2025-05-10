@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\OrganizationController;
+use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['middleware' => 'guest'], function () {
