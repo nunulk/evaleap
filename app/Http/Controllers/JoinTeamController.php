@@ -36,9 +36,10 @@ class JoinTeamController extends Controller
             abort(403);
         }
         $user = $request->user();
-        if ($team->users()->where('id', $user->id)->count() === 0) {
-            $team->users()->attach($user);
+        if ($team->users()->where('id', $user->id)->exists()) {
+            abort(400);
         }
+        $team->users()->attach($user);
 
         return redirect()->intended(route('teams.join.create'));
     }

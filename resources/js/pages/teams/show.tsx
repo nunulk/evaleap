@@ -29,7 +29,7 @@ export default function ShowPage({ team, members }: Props) {
                 <Heading2>{team.name}</Heading2>
                 <Card className="mt-4">
                     <CardHeader>
-                        <CardTitle>メンバー</CardTitle>
+                        <CardTitle>Members</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <ul>

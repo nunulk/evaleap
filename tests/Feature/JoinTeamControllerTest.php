@@ -89,7 +89,7 @@ describe('store method', function () {
         // Try to join again
         $this->actingAs($user)
             ->post(route('teams.join.store'), ['id' => $team->id])
-            ->assertRedirect(route('teams.join.create'));
+            ->assertStatus(400);
 
         // Check that there's only one connection (not duplicated)
         $this->assertEquals(1, $team->users()->where('users.id', $user->id)->count());
