@@ -25,21 +25,19 @@ export default function ShowPage({ team, members }: Props) {
     return (
         <AppLayout breadcrumbs={breadcrumbs(team.id)}>
             <Head title="show team" />
-            <div className="p-8">
-                <Heading2>{team.name}</Heading2>
-                <Card className="mt-4">
-                    <CardHeader>
-                        <CardTitle>Members</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <ul>
-                            {members.map((member) => (
-                                <li key={member.id}>{member.name}</li>
-                            ))}
-                        </ul>
-                    </CardContent>
-                </Card>
-            </div>
+            <Heading2>{team.name}</Heading2>
+            <Card className="mt-4">
+                <CardHeader>
+                    <CardTitle>Members</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ul>
+                        {members.map((member) => (
+                            <li key={member.id}>{member.name}</li>
+                        ))}
+                    </ul>
+                </CardContent>
+            </Card>
         </AppLayout>
     );
 }
