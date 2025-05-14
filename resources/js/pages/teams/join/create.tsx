@@ -1,5 +1,5 @@
 import AppLayout from '@/layouts/app-layout';
-import { Head, useForm, router } from '@inertiajs/react';
+import { Head, useForm } from '@inertiajs/react';
 import type { Team } from '@/types/app';
 import type { BreadcrumbItem } from '@/types';
 import { Button } from '@/components/ui/button';
@@ -15,7 +15,7 @@ const breadcrumbs: BreadcrumbItem[] = [
         href: '/my-team',
     },
     {
-        title: 'Join to a new team',
+        title: 'Join to a team',
         href: '/teams/join',
     },
 ];
@@ -28,12 +28,10 @@ export default function JoinToTeamPage({ teams }: Props) {
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Join to team" />
-            <div className="p-8">
-                <div>
-                    <Heading2>Join to a team</Heading2>
-                </div>
-                <div className="pt-4">
+            <Head title="Join to a team" />
+            <Heading2>Join to a team</Heading2>
+            <div className="pt-4">
+                {teams.length > 0 ? (
                     <ul className="border  p-4 rounded-2xl">
                         {teams.map((team: Team) => (
                             <li key={team.id} className={`flex gap-4 items-center mb-4 p-4  odd:bg-inherit even:bg-gray-800`}>
@@ -42,7 +40,9 @@ export default function JoinToTeamPage({ teams }: Props) {
                             </li>
                         ))}
                     </ul>
-                </div>
+                ) : (
+                    <div>No team to join</div>
+                )}
             </div>
         </AppLayout>
     );

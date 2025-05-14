@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JoinTeamController;
 use App\Http\Controllers\MyTeamController;
+use App\Http\Controllers\Organization\EvaluationPeriodController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,6 +22,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('teams/{team}', [TeamController::class, 'show'])->name('teams.show')->where('team', '[0-9]+');
     Route::get('teams/join', [JoinTeamController::class, 'create'])->name('teams.join.create');
     Route::post('teams/join', [JoinTeamController::class, 'store'])->name('teams.join.store');
+    Route::group(['prefix' => 'organization', 'as' => 'organization.'], function () {
+        Route::resource('evaluation-periods', EvaluationPeriodController::class);
+    });
 });
 
 require __DIR__.'/settings.php';

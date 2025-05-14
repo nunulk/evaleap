@@ -13,3 +13,11 @@ export type Team = {
     id: number;
     name: string;
 };
+
+export type EvaluationPeriod = {
+    id: number;
+    name: string;
+    description?: string;
+    start_date: string;
+    end_date: string;
+};
