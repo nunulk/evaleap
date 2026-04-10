@@ -26,13 +26,13 @@ php artisan migrate
 
 ## 開発
 
-フロントのみ（Vite）:
+フロントのみ（ Vite ）:
 
 ```bash
 npm run dev
 ```
 
-サーバ・キュー・ログ・Vite をまとめて起動:
+サーバ・キュー・ログ・ Vite をまとめて起動:
 
 ```bash
 composer dev
